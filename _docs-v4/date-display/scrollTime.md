@@ -9,3 +9,12 @@ Determines how far forward the scroll pane is initially scrolled.
 </div>
 
 The user will be able to scroll back to see events before this time. If you want to prevent users from doing this, use the [minTime](minTime) option instead.
+
+Example:
+
+
+var date = new Date();
+var now = d.getTime();
+var calendar = new Calendar(calendarEl, {
+  scrollTime: now,
+});
