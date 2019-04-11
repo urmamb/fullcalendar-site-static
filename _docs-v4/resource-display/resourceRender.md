@@ -51,3 +51,34 @@ var calendar = new Calendar(calendarEl, {
 See an example of resourceRender [with timeline view](timeline-resourceRender-demo) and [with vertical resource view](vertical-resource-resourceRender-demo).
 
 This callback will not allow manipulating of *event* elements, as they will not yet have been drawn at the time of invocation. Use [eventRender](eventRender) for that.
+
+
+Example:
+
+```js
+var calendar = new Calendar(calendarEl, {
+
+  resourceRender: function(renderInfo) {
+    if(renderInfo.resource.id == 'a')
+    {
+      let imageStyles= "background:url('https://www.w3schools.com/w3images/team2.jpg') left center no-repeat;\
+              border-radius:50%;\
+              width: 30px;\
+              height: 30px;\
+              background-size: 35px;\
+              margin-right:10px;\
+              display: inline-block;"
+              
+      let elStyles = "display: flex;\
+              justify-content: center;\
+              align-items: center;"
+              
+      renderInfo.el.innerHTML = '<div style="'+elStyles+'">\
+                                  <div style="'+imageStyles+'">\
+                                  </div><div>'+renderInfo.resource.title+'</div>\
+                               </div>';
+    }
+  }
+
+});
+```
